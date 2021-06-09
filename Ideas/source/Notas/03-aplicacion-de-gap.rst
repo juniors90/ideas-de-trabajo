@@ -95,7 +95,7 @@ La aplicación de esta función sería,
 
     - La función ``E`` devuelve la raíz :math:`n`-ésima primitiva de la unidad :math:`e_{n} = exp(2\pi i / n)`. La ciclotómica generalmente se ingresa como sumas de raíces de unidad, con coeficientes racionales, y la ciclotómica irracional se muestra de esa manera. (Para ciclotómicas especiales, consultar 18.4. del manual de referencia de GAP).
 
-Descompocición de los productos tensoriales de simples de :math:`\mathbb{S}_{3}` en suma de simples.
+Descomposición de los productos tensoriales de simples de :math:`\mathbb{S}_{3}` en suma de simples.
 -----------------------------------------------------------------------------------------------------
 
 .. _IrreducibleDecomposition:
