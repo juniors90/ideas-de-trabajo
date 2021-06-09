@@ -95,6 +95,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#la-funcion-tensorproductreplists">1.1.1. La función TensorProductRepLists</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#descompocicion-de-los-productos-tensoriales-de-simples-de-mathbb-s-3-en-suma-de-simples">1.2. Descompocición de los productos tensoriales de simples de <span class="math notranslate nohighlight">\(\mathbb{S}_{3}\)</span> en suma de simples.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#la-funcion-irreducibledecomposition">1.2.1. La Función IrreducibleDecomposition</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -182,6 +186,8 @@
 <li><p>Calculamos las representaciones irreducibles de <code class="docutils literal notranslate"><span class="pre">G</span></code> dadas por <code class="docutils literal notranslate"><span class="pre">irreps:=IrreducibleRepresentations(G);</span></code>, donde sabemos que <code class="docutils literal notranslate"><span class="pre">irreps</span></code> es una lista.</p></li>
 <li><p>Asignamos una nueva variable <code class="docutils literal notranslate"><span class="pre">TPRL:=TensorProductRepLists(irreps,irreps);;</span></code>, y por lo que dice <a class="reference internal" href="#tensorproductreplists"><span class="std std-ref">La función TensorProductRepLists</span></a>, debría ser una lista de orden <span class="math notranslate nohighlight">\(3\times 3 = 9\)</span>. Esto lo verificamos usando el comando <code class="docutils literal notranslate"><span class="pre">Size(TPRL);</span></code>.</p></li>
 </ol>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">La función TensorProductRepLists</span><a class="headerlink" href="#id1" title="Enlace permanente a este código fuente">¶</a></div>
 <div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;RepnDecomp&quot;</span><span class="o">,</span> <span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="no">false</span><span class="p">)</span><span class="o">;</span>
 <span class="no">true</span>
 <span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span><span class="o">:=</span><span class="nv">SymmetricGroup</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">;;</span>
@@ -212,7 +218,7 @@
       <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
       <span class="p">[</span> <span class="p">[</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span>
       <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
-<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Vamos a mostrar la forma manual en la que se calcula cada uno de</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># Vamos a mostrar de forma manual en la que se calcula uno por uno cada de</span>
 <span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># los productos tensoriales de la lista TPRL</span>
 <span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TPRL11</span><span class="o">:=</span><span class="nv">TensorProductRepLists</span><span class="p">([</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]]</span><span class="o">,</span><span class="p">[</span><span class="nv">irreps</span><span class="p">[</span><span class="nv">1</span><span class="p">]])</span><span class="o">;</span>
 <span class="p">[</span> <span class="p">[</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="o">,</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">1</span><span class="o">,</span><span class="nv">2</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">4</span><span class="o">,</span><span class="nv">5</span><span class="o">,</span><span class="nv">6</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="nv">4</span><span class="o">,</span><span class="nv">5</span><span class="p">)</span> <span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
@@ -242,6 +248,114 @@
       <span class="p">[</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">^</span><span class="nv">2</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">E</span><span class="p">(</span><span class="nv">3</span><span class="p">)</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">]</span>
 <span class="nv">gap</span><span class="o">&gt;</span>
 </pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>La función <code class="docutils literal notranslate"><span class="pre">E</span></code> devuelve la raíz <span class="math notranslate nohighlight">\(n\)</span>-ésima primitiva de la unidad <span class="math notranslate nohighlight">\(e_{n} = exp(2\pi i / n)\)</span>. La ciclotómica generalmente se ingresa como sumas de raíces de unidad, con coeficientes racionales, y la ciclotómica irracional se muestra de esa manera. (Para ciclotómicas especiales, consultar 18.4. del manual de referencia de GAP).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="descompocicion-de-los-productos-tensoriales-de-simples-de-mathbb-s-3-en-suma-de-simples">
+<h2><span class="section-number">1.2. </span>Descompocición de los productos tensoriales de simples de <span class="math notranslate nohighlight">\(\mathbb{S}_{3}\)</span> en suma de simples.<a class="headerlink" href="#descompocicion-de-los-productos-tensoriales-de-simples-de-mathbb-s-3-en-suma-de-simples" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="la-funcion-irreducibledecomposition">
+<span id="irreducibledecomposition"></span><h3><span class="section-number">1.2.1. </span>La Función IrreducibleDecomposition<a class="headerlink" href="#la-funcion-irreducibledecomposition" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Además, sabemos que la documentación oficial del paquete <strong>RepnDecomp</strong>, dice que la función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecomposition(</span> <span class="pre">rho</span> <span class="pre">)</span></code> devuelve una lista de espacios vectoriales <span class="math notranslate nohighlight">\(W_{j}\)</span> tales que <span class="math notranslate nohighlight">\(V = \displaystyle\oplus_{j} W_{j}\)</span> y cada <span class="math notranslate nohighlight">\(W_{j}\)</span> es un espacio vectorial <span class="math notranslate nohighlight">\(G-\text{invariante}\)</span> irreducible.</p>
+<p>Osea que, calcula la descomposición de <span class="math notranslate nohighlight">\(V\)</span> en subpresentaciones irreducibles.</p>
+<p>El algoritmo para aplicar esta función es muy igaul al algoritmo de <a class="reference internal" href="#tensorproductreplists"><span class="std std-ref">La función TensorProductRepLists</span></a> dado anteriormente pero con un paso más:</p>
+<ol class="arabic simple">
+<li><p>Asignamos una variable <code class="docutils literal notranslate"><span class="pre">G:=SymmetricGroup(3);</span></code>, el grupos <span class="math notranslate nohighlight">\(\mathbb{S}_{3}\)</span>,</p></li>
+<li><p>Calculamos las representaciones irreducibles de <code class="docutils literal notranslate"><span class="pre">G</span></code> dadas por <code class="docutils literal notranslate"><span class="pre">irreps:=IrreducibleRepresentations(G);</span></code>, donde sabemos que <code class="docutils literal notranslate"><span class="pre">irreps</span></code> es una lista.</p></li>
+<li><p>Asignamos una nueva variable <code class="docutils literal notranslate"><span class="pre">TPRL:=TensorProductRepLists(irreps,irreps);;</span></code>, y por lo que dice <a class="reference internal" href="#tensorproductreplists"><span class="std std-ref">La función TensorProductRepLists</span></a>, debría ser una lista de orden <span class="math notranslate nohighlight">\(3\times 3 = 9\)</span>. Esto lo verificamos usando el comando <code class="docutils literal notranslate"><span class="pre">Size(TPRL);</span></code>.</p></li>
+<li><p>Para cada elemento (que viene dado por un producto tensorial <span class="math notranslate nohighlight">\(\rho_{i}\otimes\tau_{j}\)</span>, <span class="math notranslate nohighlight">\(i,j=1,2,3.\)</span>) de la lista <code class="docutils literal notranslate"><span class="pre">TPRL</span></code> aplicamos la función <code class="docutils literal notranslate"><span class="pre">IrreducibleDecomposition(</span>&#160; <span class="pre">)</span></code>.</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">La función IrreducibleDecomposition</span><a class="headerlink" href="#id2" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;RepnDecomp&quot;</span><span class="o">,</span> <span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="no">false</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">G</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span> <span class="nv">3</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">irreps</span> <span class="o">:=</span> <span class="nv">IrreducibleRepresentations</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TPRL</span> <span class="o">:=</span> <span class="nv">TensorProductRepLists</span><span class="p">(</span> <span class="nv">irreps</span><span class="o">,</span> <span class="nv">irreps</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="c1"># calculamos descomposición en irreducibles</span>
+<span class="hll"><span class="nv">gap</span><span class="o">&gt;</span> <span class="k">for</span> <span class="nv">tensor_prod</span> <span class="ow">in</span> <span class="nv">TPRL</span> <span class="k">do</span>
+</span><span class="hll"><span class="o">&gt;</span>     <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;----------------------------------------------------------------------------------\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="o">&gt;</span>     <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;DegreeOfRepresentation: &quot;</span><span class="o">,</span> <span class="nv">DegreeOfRepresentation</span><span class="p">(</span> <span class="nv">tensor_prod</span> <span class="p">)</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="o">&gt;</span>     <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Irreducible Decomposition:\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="o">&gt;</span>     <span class="nv">Print</span><span class="p">(</span><span class="nv">IrreducibleDecomposition</span><span class="p">(</span> <span class="nv">tensor_prod</span> <span class="p">)</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="o">&gt;</span>     <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;----------------------------------------------------------------------------------\n&quot;</span><span class="p">)</span><span class="o">;</span>
+</span><span class="hll"><span class="o">&gt;</span> <span class="k">od</span><span class="o">;</span>
+</span><span class="nv">DegreeOfRepresentation</span>: <span class="nv">1</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">1</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">2</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">1</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">1</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">2</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">2</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">2</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">DegreeOfRepresentation</span>: <span class="nv">4</span>
+<span class="nv">Irreducible</span> <span class="nv">Decomposition</span>:
+<span class="p">[</span> <span class="k">rec</span><span class="p">(</span>
+      <span class="nv">basis</span> <span class="o">:=</span> <span class="p">[</span> <span class="p">[</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">0</span><span class="o">,</span> <span class="nv">1</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">]</span>
+<span class="o">----------------------------------------------------------------------------------</span>
+<span class="nv">gap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">ideas.g</span><a class="headerlink" href="#id3" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">LoadPackage</span><span class="p">(</span><span class="s">&quot;RepnDecomp&quot;</span><span class="o">,</span> <span class="s">&quot;0&quot;</span><span class="o">,</span> <span class="no">false</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">G</span> <span class="o">:=</span> <span class="nv">SymmetricGroup</span><span class="p">(</span> <span class="nv">3</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">irreps</span> <span class="o">:=</span> <span class="nv">IrreducibleRepresentations</span><span class="p">(</span> <span class="nv">G</span> <span class="p">)</span><span class="o">;;</span>
+<span class="nv">TPRL</span> <span class="o">:=</span> <span class="nv">TensorProductRepLists</span><span class="p">(</span> <span class="nv">irreps</span><span class="o">,</span> <span class="nv">irreps</span> <span class="p">)</span><span class="o">;;</span>
+<span class="c1"># calculamos descomposición en irreducibles</span>
+<span class="k">for</span> <span class="nv">tensor_prod</span> <span class="ow">in</span> <span class="nv">TPRL</span> <span class="k">do</span>
+    <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;DegreeOfRepresentation: &quot;</span><span class="o">,</span> <span class="nv">DegreeOfRepresentation</span><span class="p">(</span> <span class="nv">tensor_prod</span> <span class="p">)</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+    <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;Irreducible Decomposition:\n&quot;</span><span class="p">)</span><span class="o">;</span>
+    <span class="nv">Print</span><span class="p">(</span><span class="nv">IrreducibleDecomposition</span><span class="p">(</span> <span class="nv">tensor_prod</span> <span class="p">)</span><span class="o">,</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span><span class="o">;</span>
+    <span class="nv">Print</span><span class="p">(</span><span class="s">&quot;----------------------------------------------------------------------------------\n&quot;</span><span class="p">)</span><span class="o">;</span>
+<span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<ul class="simple">
+<li><p>Descargar aquí <a class="reference download internal" download="" href="../_downloads/9885c0b1caec8ba052a4397bdf714102/ideas.g"><code class="xref download docutils literal notranslate"><span class="pre">ideas.g</span></code></a></p></li>
+</ul>
 </div>
 </div>
 </div>
