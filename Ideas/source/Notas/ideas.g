@@ -4,7 +4,7 @@ irreps := IrreducibleRepresentations( G );;
 TPRL := TensorProductRepLists( irreps, irreps );;
 # calculamos descomposición en irreducibles
 for tensor_prod in TPRL do
-    Print("DegreeOfRepresentation: ", DegreeOfRepresentation( tensor_prod ), "\n");
+    Print("Degree Of Representation: ", DegreeOfRepresentation( tensor_prod ), "\n");
     Print("Irreducible Decomposition:\n");
     Print(IrreducibleDecomposition( tensor_prod ), "\n");
     Print("----------------------------------------------------------------------------------\n");
